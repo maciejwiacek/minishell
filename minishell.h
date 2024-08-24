@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:03:24 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/19 15:43:52 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/22 15:57:11 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "libft/libft.h"
@@ -80,5 +83,7 @@ int		mini_env(t_envp *envp);
 int		mini_pwd(void);
 int		mini_unset(t_envp *envp, t_cmd *cmd);
 int		mini_export(t_envp *envp, t_cmd *cmd);
+
+void	exec(t_shell *shell);
 
 #endif

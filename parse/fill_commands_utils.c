@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:58:41 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/17 19:52:50 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:52:26 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ size_t	get_env_len(t_shell *shell, char **input)
 {
 	size_t	i;
 	size_t	j;
-
 	i = 0;
 	(*input)++;
 	while (ft_isalnum(*(*input + i)) || *(*input + i) == '_')
@@ -92,6 +91,8 @@ size_t	get_env_len(t_shell *shell, char **input)
 			*input += i;
 			return (ft_strlen(shell->envp->value + 1));
 		}
+		if (!shell->envp->next)
+			break ;
 		shell->envp = shell->envp->next;
 	}
 	*input += i;

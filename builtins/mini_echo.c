@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_echo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
+/*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:33:55 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/08/19 15:32:09 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/21 14:00:53 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	print_vars(char **vars)
 	while (vars[i])
 	{
 		ft_putstr_fd(vars[i], STDOUT_FILENO);
-		if (vars[i + 1])
+		if (vars[i + 1] && ft_strlen(vars[i])) /// strlen check zeby nie dodawac spacji miedziy pustymi stringami : )))
 			ft_putchar_fd(' ', STDOUT_FILENO);
 		i++;
 	}

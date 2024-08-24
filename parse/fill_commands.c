@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:39:44 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/19 15:36:29 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/21 14:01:41 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void	fill_env(t_shell *shell, char ***input, char **command)
 			**input += i;
 			return ;
 		}
+		if (!shell->envp->next)
+			break ;
 		shell->envp = shell->envp->next;
 	}
 	**input += i;

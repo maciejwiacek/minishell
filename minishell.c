@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:01:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/19 15:36:50 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/22 15:52:59 by msmajdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	main(int argc, char **argv, char **envp)
 	char	*input;
 	t_shell	shell;
 
-	(void)argc;
-	(void)argv;
+	((void)argc, (void)argv);
 	init_shell(&shell, envp);
 	while (shell.exit == false)
 	{
@@ -26,7 +25,7 @@ int	main(int argc, char **argv, char **envp)
 		if (!input)
 			break ;
 		parse_input(&shell, ft_strtrim(input, " \t\n\r\v\f"));
-		mini_exec(&shell, shell.cmd);
+		exec(&shell);
 		add_history(input);
 		free(input);
 	}
