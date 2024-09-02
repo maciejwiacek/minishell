@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 17:25:23 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/28 13:52:40 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/09/01 16:11:40 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		mini_echo(t_hell hell);
 int		mini_env(t_env *env);
 int		mini_exit(t_env *env, t_hell hell);
 int		mini_export(t_env *env, t_hell hell);
-int		mini_pwd(t_env *env);
+int		mini_pwd(t_hell hell, t_env *env);
 int		mini_unset(t_env *env, t_hell hell);
 
 // EXECUTION
@@ -80,5 +80,9 @@ void	redirect(t_hell *hell);
 char	*get_absolute_path(char *script, t_env *env);
 int		execute_bin(char *bin_path, t_env *env, t_hell hell);
 char	*join_path(char *p1, char *p2);
+
+// SIGNALS
+void	signal_handler(bool is_exec);
+void	exit_heredoc(int signum);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 22:00:36 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/29 08:34:22 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/09/01 16:07:06 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	check_flags(t_hell *hell, bool *add_nl)
 			if (hell->flags[i++] != 'n')
 			{
 				ft_putstr_fd("invalid flag\n", 2);
-				return (-1);
+				return (1);
 			}
 		}
 		if (hell->flags[0] == 'n')

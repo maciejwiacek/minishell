@@ -3,7 +3,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRCS = minishell.c $(UTILS_SRCS) $(PARSE_SRCS) $(BUILTINS_SRCS) $(EXEC_SRCS)
+SRCS = minishell.c signals.c $(UTILS_SRCS) $(PARSE_SRCS) $(BUILTINS_SRCS) $(EXEC_SRCS)
 UTILS_SRCS = utils/safe_malloc.c utils/exit_program.c utils/env.c utils/free.c utils/parse.c
 PARSE_SRCS = parse/parse_input.c parse/helpers.c parse/init_hell.c parse/validate_input.c
 EXEC_SRCS = exec/exec.c exec/helpers.c exec/path_commands.c exec/redirections.c exec/pipes.c

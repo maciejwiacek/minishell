@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 17:25:37 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/29 08:05:26 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/09/01 16:01:31 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,22 @@ int	main(int argc, char **argv, char **envp)
 	init_envp(&env, envp);
 	while (true)
 	{
+		signal_handler(false);
 		input = readline("hell$ ");
 		if (!input)
 			break ;
-		add_history(input);
+		if (*input)
+			add_history(input);
 		hell = parse_input(&env, &input);
 		if (!hell)
+		{
+			free(input);
 			continue ;
+		}
 		execute(&env, hell);
 		free_hell(hell);
 		free(input);
 	}
+	free_arr(env.envp);
 	return (0);
 }

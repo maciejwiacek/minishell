@@ -6,7 +6,7 @@
 /*   By: msmajdor <msmajdor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 22:57:39 by msmajdor          #+#    #+#             */
-/*   Updated: 2024/08/29 08:18:35 by msmajdor         ###   ########.fr       */
+/*   Updated: 2024/09/01 16:08:52 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ static int	await_processes(t_hell *hell, t_env *env)
 
 static int	execute_command(t_env *env, t_hell hell, bool fork)
 {
+	signal_handler(true);
 	if (fork)
 	{
 		if (ft_strncmp(hell.cmd, "echo", ft_strlen(hell.cmd)) == 0)
 			return (mini_echo(hell));
 		if (ft_strncmp(hell.cmd, "pwd", ft_strlen(hell.cmd)) == 0)
-			return (mini_pwd(env));
+			return (mini_pwd(hell, env));
 		if (ft_strncmp(hell.cmd, "env", ft_strlen(hell.cmd)) == 0)
 			return (mini_env(env));
 		return (search_bin(env, hell));
